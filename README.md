@@ -10,7 +10,7 @@ The urls.py file defines the URL patterns for the Django project. It maps URLs t
 ## Installation and starting the project
 Installation Before running the project, ensure you have the following prerequisites:
 Python 3.8 or higher installed Django 3.2 or higher installed To set up the project, follow these steps:
-1.Clone the project repository from GitHub: https://github.com/MonikaJov/Informaciska_bezbednost_proekt
+1.Clone the project repository from GitHub: https://github.com/MonikaJov/Informaciska_bezbednost_project
 
 2.Open the file as PyCharm project
 
