@@ -21,9 +21,10 @@ Python 3.8 or higher installed Django 3.2 or higher installed To set up the proj
 4.Open your web browser and visit http://localhost:8000/login to access the login page.
 
 *To be able to access the database at http://127.0.0.1:8000/admin/ you need to log in as admin - username:admin password:admin
-Technologies used: Python, HTML, CSS, Bootstrap, JavaScript, Django.
 
 *To be able to send emails make sure to add your own email and password in setting.py because I'm not sharing my password for security reasons. If you're using your google account, make sure to generate an app password and use that password otherwise email sending wont work.
+
+Technologies used: Python, HTML, CSS, Bootstrap, JavaScript, Django.
 
 # Homework 2 documentation:
 
