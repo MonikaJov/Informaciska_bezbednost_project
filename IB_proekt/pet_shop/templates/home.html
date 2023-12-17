@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'logout_form' %}">Log Out</a>
+<h1>
+
+    Welcome {{ user.username }}!
+</h1>
+{% if user_profile.role == 'ADMIN' %}
+    <div>A message that only admins can see.</div>
+{% endif %}
+{% if user_profile.role == 'PREMIUM_USER' %}
+    <div>A message that only premium users can see.</div>
+{% endif %}
+{% if user_profile.role == 'USER' %}
+    <div>A message that only normal users can see.</div>
+{% endif %}
+{% if user_profile.role == 'PREMIUM_USER' or user_profile.role == 'ADMIN' %}
+    <div>A message that only admins and premium users can see.</div>
+{% endif %}
+</body>
+</html>

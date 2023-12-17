@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        ul, li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .success_msg {
+            text-align: center;
+            color: darkgreen;
+            background-color: lightgreen;
+            border-color: green;
+        }
+        .bad_cred_msg{
+            text-align: center;
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+<body style="background-color: gainsboro">
+{% if message %}
+    <div class="success_msg">
+        {{ message }}
+    </div>
+{% endif %}
+{% if message2 %}
+    <div class="bad_cred_msg">
+        {{ message2 }}
+    </div>
+{% endif %}
+<form method="post" action="{% url 'login_form' %}" enctype="multipart/form-data"
+      style="margin-right: 300px; margin-left: 600px;">
+    {% csrf_token %}
+    <div style="margin-top: 100px; background-color: whitesmoke; width: 350px; padding: 30px; ">
+        <div style="text-align: center;">
+            <h5>Log in</h5>
+            <br/>
+        </div>
+        <table class="d-flex justify-content-center">
+            <tr>
+                <td>{{ form.your_username.label_tag }}</td>
+                <td>{{ form.your_username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.your_password.label_tag }}</td>
+                <td>{{ form.your_password }}</td>
+            </tr>
+
+        </table>
+        <div style="text-align: right;">
+            <a href="#" style="color: dodgerblue; font-size: 12px;">Forgot password?</a>
+        </div>
+        <br/>
+
+        <input style="width: 290px;" class="btn btn-success" type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+        <div style="text-align: center;">
+            <hr/>
+            New here? <a href="{% url 'register' %}" style="color: dodgerblue;">Create an account</a>
+        </div>
+    </div>
+</form>
+</body>
+</html>
