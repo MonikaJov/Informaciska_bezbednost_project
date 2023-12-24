@@ -84,7 +84,7 @@ The home method is called after the user has logged in. It checks if the user is
 
 ### class UserProfile in models.py:
 In the UserProfile class I added a ‘role’ attribute that will define the role that the user profile has. It can have one of three values: ‘ADMIN’, ‘PREMIUM USER’ or ‘USER’, with default role ‘USER’.
-The admin user is the only one for now that can assign roles to user profiles through the database.
+The admin user can assign roles to user profiles through the database, and page_admin user can assign roles to user profiles at http://127.0.0.1:8000/users/.
  
 ## Access control:
 
