@@ -89,18 +89,14 @@ The admin user can assign roles to user profiles through the database, and page_
 ## Access control:
 
 •	To write blogs, the user needs to be a premium user or an admin. 
-
 •	To change user roles, the user needs to be an admin. 
-
 •	Any user can comment on a post, but only the author can edit their post, and both authors and admins can delete a post. 
-
 •	Comments can be deleted by the author of the comment, the author of the post or the page admin. 
 
 To be able to do that I used a Django template code that uses conditional rendering based on the user's role ({% if user_profile.role == 'role_name' %} ).
   
 ## Additionally:
 •	Users can also block other users so they wouldn’t be able to see their blogs.
-
 •	User can view thir profile at http://127.0.0.1:8000/profile/.
 
 
