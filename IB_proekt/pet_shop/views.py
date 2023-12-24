@@ -72,7 +72,7 @@ def login_form(request):
                 password_hasher = PasswordHasher()
                 if password_hasher.check_password(password, user_profile.password):
                     # Check if two-factor authentication is enabled for the user
-                    if user_profile.two_factor_enabled:
+                    if user_profile.two_factor_enabled and user_profile.email_verified:
                         # Authenticate the user but don't log them in yet
                         user = authenticate(request, username=username, password=password)
                         # Set the user in the session to use later in two_factor_authentication view
