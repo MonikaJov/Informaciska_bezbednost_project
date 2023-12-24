@@ -98,7 +98,7 @@ The admin user can assign roles to user profiles through the database, and page_
 
 To be able to do that I used a Django template code that uses conditional rendering based on the user's role ({% if user_profile.role == 'role_name' %} ).
   
-## Additionally::
+## Additionally:
 •	Users can also block other users so they wouldn’t be able to see their blogs.
 
 •	User can view thir profile at http://127.0.0.1:8000/profile/.
