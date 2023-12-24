@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <br/>
+        <ul>
+            {% for user_profile in user_profiles %}
+                {% if not user_profile.role == 'ADMIN' %}
+                    <li>
+                        <div class="card" style="width: 28rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ user_profile.user.username }}</h5>
+                                <p class="card-text">Name: {{ user_profile.name }}</p>
+                                <p class="card-text">Surname: {{ user_profile.surname }}</p>
+                                <p class="card-text">Email: {{ user_profile.email }}</p>
+                                <p class="card-text">Email verified: {{ user_profile.email_verified }}</p>
+                                <p class="card-text">Phone Number: {{ user_profile.phone_number }}</p>
+                                <p class="card-text">Address: {{ user_profile.address }}</p>
+                                <p class="card-text">Role: {{ user_profile.role }}</p>
+                                <hr/>
+                                {#Change role#}
+                                <form class="form-group" method="post" action="{% url 'change_role' %}">
+                                    {% csrf_token %}
+                                    <label class="my-1 mr-2" for="new_role">Change role:</label>
+                                    <select multiple class="form-control" name="new_role">
+                                        {% for role_key, role_display in user_profile.ROLE_CHOICES %}
+                                            <option value="{{ role_key }}"
+                                                    {% if user_profile.role == role_key %}selected{% endif %}>
+                                                {{ role_display }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input hidden value="{{ user_profile.user.username }}" name="username"
+                                           id="username">
+                                    <button class="btn btn-outline-primary" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <br/>
+                    </li>
+                {% endif %}
+            {% empty %}
+                <li>No user.</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -52,6 +52,23 @@ class UserProfile(models.Model):
         return self.user.username
 
 
+class BlogPost(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+    # files = models.FileField(upload_to='blogposts/', null=True, default='')
+    blocked_users = models.ManyToManyField(User, related_name='blocked_posts', blank=True)
+
+
+class Comment(models.Model):
+    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class SuperUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 

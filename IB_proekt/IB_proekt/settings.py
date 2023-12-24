@@ -143,6 +143,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'monjov23@gmail.com'
-EMAIL_HOST_PASSWORD = '*************' # I'm not sharing my password for security reasons.
+EMAIL_HOST_PASSWORD = '*************' # I'm not sharing my password for security reasons
 
 LOGIN_URL = 'login_form'

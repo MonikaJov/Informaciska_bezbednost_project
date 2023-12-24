@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {#        Only premium users and admins can create posts#}
+        {% if  user_profile.role == 'PREMIUM_USER' or user_profile.role == 'ADMIN' %}
+            <a class="btn btn-outline-primary" href="{% url 'create' %}"
+               style="margin-left: 32px; margin-top: 32px; margin-bottom: 32px;">+ Create New Post</a>
+        {% endif %}
+        {% if user_profile.role == 'ADMIN' %}
+            <a class="btn btn-outline-secondary" href="{% url 'list_users' %}"
+               style="margin-left: 32px; margin-top: 32px; margin-bottom: 32px;">View Users</a>
+            {% else %}
+            <br/>
+        {% endif %}
+        <ul>
+            {% for post in posts %}
+                {% if user not in post.blocked_users.all %}
+                    <li>
+                        <div class="card" style="width: 28rem;">
+                            <a href="{% url 'view_post' post.id %}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post.title }}</h5>
+                                    <p class="card-text">Author: {{ post.author.username }}</p>
+                                    <p class="card-text">{{ post.content }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <br/>
+                    </li>
+                {% endif %}
+            {% empty %}
+                <li>No posts available.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="margin: 20px">Please <a style="color: blue" href="{% url 'login_form' %}">Log in</a> to see posts.</p>
+    {% endif %}
+{% endblock %}

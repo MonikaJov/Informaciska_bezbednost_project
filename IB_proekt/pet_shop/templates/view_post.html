@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}<br/>
+    {% if user.is_authenticated and user not in post.blocked_users.all %}
+        <div class="card  " style="width: 48rem; margin-left: 32px; ">
+            <div class="card-header">
+                Author: {{ post.author.username }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                <hr/>
+                <p>Comments:</p>
+                {% for comment in comments %}
+                    <div style="margin-top: 20px;">
+                        <span class="rounded-pill text-wrap" style="background-color: #f7f7f9; padding: 10px;">
+                            {{ comment.author }}: {{ comment.content }}
+                        </span>
+                        {#                    Only the author of the comment or post and admins can delete a comment#}
+                        {% if  user == comment.author or user_profile.role == 'ADMIN' or post.author == user %}
+                            <a class="btn btn-outline-danger btn-sm"
+                               href="{% url 'delete_comment' comment.id %}">Delete</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <a style="margin-top: 20px;" class="btn btn-secondary btn-sm"
+                   href="{% url 'comment_on_post' post.id %}">Leave a comment</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{ post.created_at }}
+            </div>
+        </div>
+        <div style="margin-left: 32px; margin-top: 20px">
+    {% endif %}
+{#    Only the author can edit their post#}
+{% if  user == post.author %}
+    <a class="btn btn-secondary" href="{% url 'edit_post' post.id %}">Edit post</a>
+{% endif %}
+{#    Only the author or admins can delete posts#}
+{% if user == post.author or user_profile.role == 'ADMIN' %}
+    <a class="btn btn-danger" href="{% url 'delete_post' post.id %}">Delete post</a>
+{% endif %}
+</div>
+
+{% endblock %}
+

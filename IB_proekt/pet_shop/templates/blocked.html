@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <ul>
+            <h3 style=" margin-top: 32px;">Blocked users:</h3>
+            {% for user in users %}
+                <li>
+                    <div class="card" style="width: 28rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ user.username }}</h5>
+                            <p class="card-text"> {{ user.name }} {{ user.surname }}</p>
+                        </div>
+                    </div>
+                    <br/>
+                </li>
+            {% empty %}
+                <li>No list available.</li>
+            {% endfor %}
+        </ul>
+        <form method="post" enctype="multipart/form-data" style="margin-right: 170px; margin-left: 170px">
+            <h4>Add blocked user:</h4>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% else %}
+        <p style="margin: 20px">Please <a style="color: blue" href="{% url 'login_form' %}">Log in</a> to see posts.</p>
+    {% endif %}
+{% endblock %}
