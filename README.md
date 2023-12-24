@@ -1,23 +1,35 @@
 # Informaciska_bezbednost_proekt
 
 This project is a Django web application that includes features for user registration, login, and a basic home page. As a database to store user profiles, I’m using Django database. 
+
 The models.py file is a crucial component of the application, defining the data models used by the Django ORM (Object-Relational Mapping). These models represent the structure of the database tables and the relationships between them. 
+
 The views.py file contains the Django views that handle the logic for processing user requests and rendering appropriate responses. Views are responsible for interacting with the models to fetch or update data and rendering the appropriate templates.
+
 The settings.py file contains configuration settings for the Django project. These settings control different aspects of the project, including database configuration, authentication and more.
+
 The admin.py file is used to configure and customize the behavior of the Django admin interface.
+
 The urls.py file defines the URL patterns for the Django project. It maps URLs to corresponding views, allowing the application to respond to different requests. 
 
 ## Installation and starting the project
 Installation Before running the project, ensure you have the following prerequisites:
 Python 3.8 or higher installed Django 3.2 or higher installed To set up the project, follow these steps:
-1.Clone the project repository from GitHub: https://github.com/MonikaJov/Informaciska_bezbednost_proekt
+1.Clone the project repository from GitHub: https://github.com/MonikaJov/Informaciska_bezbednost_project
+
 2.Open the file as PyCharm project
+
 3.Type in terminal: cd IB_proekt
+
 3.To run the project type the following command in terminal: python manage.py runserver
+
 4.Open your web browser and visit http://localhost:8000/login to access the login page.
+
 *To be able to access the database at http://127.0.0.1:8000/admin/ you need to log in as admin - username:admin password:admin
-Technologies used: Python, HTML, CSS, Bootstrap, JavaScript, Django.
+
 *To be able to send emails make sure to add your own email and password in setting.py because I'm not sharing my password for security reasons. If you're using your google account, make sure to generate an app password and use that password otherwise email sending wont work.
+
+Technologies used: Python, HTML, CSS, Bootstrap, JavaScript, Django.
 
 # Homework 2 documentation:
 
