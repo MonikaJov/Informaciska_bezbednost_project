@@ -21,9 +21,9 @@ Python 3.8 or higher installed Django 3.2 or higher installed To set up the proj
 
 3.Type in terminal: cd IB_proekt
 
-3.To run the project type the following command in terminal: python manage.py runserver
+4.To run the project type the following command in terminal: python manage.py runserver
 
-4.Open your web browser and visit http://localhost:8000/login to access the login page.
+5.Open your web browser and visit http://localhost:8000/login to access the login page.
 
 *To be able to access the database at http://127.0.0.1:8000/admin/ you need to log in as admin - username:admin password:admin
 
@@ -67,16 +67,16 @@ The login_form method in views.py is also called when the user types their usern
 -	Checks if a user profile exists with that username. When the check fails, the user is given a corresponding error message.
 -	Checks if the password that the user types matched the password stored in the database. The password is hashed so password_hasher.check_password(password, user_profile.password) is used. The method check_password is from the class PasswordHasher that I created in password_hasher_with_salt.py. When the check fails, the user is given a corresponding error message.
 -	Check if two factor authorisation is enabled for the user. If it is then user is redirected to http://127.0.0.1:8000/two_factor_authentication/. 
--	If not, then the person is authenticated, logged in and redirected to http://127.0.0.1:8000/home. 
+-	If not, then the person is authenticated, logged in and redirected to http://127.0.0.1:8000/posst. 
 
 ### two_factor_authentication method:
 When request=’GET’, the called two_factor_authentication method in views.py generates a token and sends it via email to the user’s email address, similarly the way register method did. After that, ‘two_factor_authentication.html’ is rendered and user goes to http://127.0.0.1:8000/two_factor_authentication/.
 The two_factor_authentication method in views.py is also called when the user types the token in http://127.0.0.1:8000/two_factor_authentication/. In that case, request=’POST’ and several things are preformed:
 -	Check if the token that the user typed matches the token that was sent via email and if the token is valid. 
--	If they don’t match or token is not valid the user is given a corresponding error message, but if they do match and the token is valid then user is logged in user goes to http://127.0.0.1:8000/home.
+-	If they don’t match or token is not valid the user is given a corresponding error message, but if they do match and the token is valid then user is logged in user goes to http://127.0.0.1:8000/posts.
 
 ### home method:
-The home method is called after the user has logged in. It just checks if the user is logged in and if so, ‘home.html’ is rendered and user goes to http://127.0.0.1:8000/home where a simple home page is presented.
+The home method is called after the user has logged in. It checks if the user is logged in and if so, it retrieves all the blog posts from the BlogPost model and the UserProfile associated with the current user. Then ‘blog_list.html’ is rendered with the provided context and the user goes to http://127.0.0.1:8000/posts where a web page is presented that lists all blogs that users have posted. The web page also has a navigation bar that has a search field and a filter form that the user can use to search for a post with a specific title or content and filter posts by creation dates. 
  
 # Homework 3 documentation:
 
@@ -88,13 +88,20 @@ The admin user is the only one for now that can assign roles to user profiles th
  
 ## Access control:
 
-### home method:
-In home method I added an additional step:
--	Creating a context dictionary containing the 'user_profile' key with the fetched UserProfile object and It renders the 'home.html' template with the additional context.
-  
-### home.html:
-In home.html I added 4 div elements and each div can be seen by users depending on the role they have. The first div has the message ‘A message that only admins can see’. As the message says, it can be only seen by users with role = ‘ADMIN’. The seccond message can only be seen by premium users, the third message can be seen by normal users, and the fourth message can be seen by both admins and premium users. 
+•	To write blogs, the user needs to be a premium user or an admin. 
+
+•	To change roles, the user needs to be an admin. 
+
+•	Any user can comment on a post, but only the author can edit their post, and both authors and admins can delete a post. 
+
+•	Comments can be deleted by the author of the comment, the author of the post or the page admin. 
+
 To be able to do that I used a Django template code that uses conditional rendering based on the user's role ({% if user_profile.role == 'role_name' %} ).
+  
+## Additionally::
+•	Users can also block other users so they wouldn’t be able to see their blogs.
+
+•	User can view thir profile at http://127.0.0.1:8000/profile/.
 
 
 
