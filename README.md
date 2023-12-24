@@ -90,7 +90,7 @@ The admin user can assign roles to user profiles through the database, and page_
 
 •	To write blogs, the user needs to be a premium user or an admin. 
 
-•	To change roles, the user needs to be an admin. 
+•	To change user roles, the user needs to be an admin. 
 
 •	Any user can comment on a post, but only the author can edit their post, and both authors and admins can delete a post. 
 
