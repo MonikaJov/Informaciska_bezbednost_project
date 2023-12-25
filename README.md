@@ -2,7 +2,7 @@
 
 This project is a Django web application that includes features for user registration, login, and a basic home page. As a database to store user profiles, I’m using Django database. 
 
-The models.py file is a crucial component of the application, defining the data models used by the Django ORM (Object-Relational Mapping). These models represent the structure of the database tables and the relationships between them. 
+The models.py file defines the data models used by the Django ORM (Object-Relational Mapping). These models represent the structure of the database tables and the relationships between them. 
 
 The views.py file contains the Django views that handle the logic for processing user requests and rendering appropriate responses. Views are responsible for interacting with the models to fetch or update data and rendering the appropriate templates.
 
