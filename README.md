@@ -117,11 +117,9 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [ 
-
 … 
 
 'sslserver', 
-
 ] 
 
 
@@ -130,6 +128,7 @@ SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True 
 
 CSRF_COOKIE_SECURE = True
+
 
 
 Next, I configured my web application to work with a server certificate (a green padlock appeared in the address bar). 
