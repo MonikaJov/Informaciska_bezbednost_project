@@ -103,5 +103,35 @@ To be able to do that I used a Django template code that uses conditional render
 
 •	User can view thir profile at http://127.0.0.1:8000/profile/.
 
+## From Homework 2 documentation
+
+# Setting up SSL in settings.py
+For development purposes, Django comes with its own development server, which is a lightweight server suitable for testing. I can use that built-in development server by running the python manage.py runserver command. 
+
+To run my Django development server with SSL support, first I installed sslserver by running pip install django-sslserver so that I can use the runsslserver command provided by the django-sslserver package. Then I made small changes in settings.py in my Djagno app: 
+
+DEBUG = False 
 
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1'] 
+
+
+INSTALLED_APPS = [ 
+
+… 
+
+'sslserver', 
+
+] 
+
+
+SECURE_SSL_REDIRECT = True 
+
+SESSION_COOKIE_SECURE = True 
+
+CSRF_COOKIE_SECURE = True
+
+
+Next, I configured my web application to work with a server certificate (a green padlock appeared in the address bar). 
+
+If you're interested to know how i did that, view the Homeword_4_full_documentation.pdf where I go step by step to create a PKI infrastructure.
