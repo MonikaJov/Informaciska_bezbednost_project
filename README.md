@@ -103,7 +103,7 @@ To be able to do that I used a Django template code that uses conditional render
 
 •	User can view thir profile at http://127.0.0.1:8000/profile/.
 
-# From Homework 2 documentation
+# From Homework 4 documentation
 
 ## Setting up SSL in settings.py
 For development purposes, Django comes with its own development server, which is a lightweight server suitable for testing. I can use that built-in development server by running the python manage.py runserver command. 
