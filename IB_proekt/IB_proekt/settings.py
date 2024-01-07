@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d@7aco_u()^96@&5p8lmudj&oa$vkbubuz@17j-%1hd&ow-r62'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Set this to False in production
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pet_shop',
     'django_otp',
     'django_otp.plugins.otp_totp',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +143,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'monjov23@gmail.com'
+EMAIL_HOST_USER = '******@gmail.com' # I'm not sharing my email for security reasons
 EMAIL_HOST_PASSWORD = '*************' # I'm not sharing my password for security reasons
 
 LOGIN_URL = 'login_form'
+
+# Add the following lines to enable SSL
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
