@@ -133,6 +133,6 @@ CSRF_COOKIE_SECURE = True
 
 
 
-Next, I configured my web application to work with a server certificate (a green padlock appeared in the address bar). 
+Next, I configured my web application to work with my own server certificate (a green padlock appeared in the address bar). 
 
-If you're interested to know how i did that, view the Homework_4_full_documentation.pdf where I go step by step to create a PKI infrastructure.
+If you're interested to know how i did that, view the Homework_4_full_documentation.pdf where I go step by step to create a PKI infrastructure using the OpenSSL command-line tools.
