@@ -1,6 +1,21 @@
 # Information_security_project
 
 This project is a Django web application that includes features for user registration, login, and pages for viewing, creating, editing blogs. Main goal for this project is creating a web app that incorporates procedures and methods for security that can effectively protect sensitive information and provide a trustworthy environment for users. 
+
+## Key Features:
+
+•	User registration with comprehensive security checks
+
+•	Two-factor authentication for enhanced security
+
+•	Role-based access control and user management
+
+•	Secure handling of sensitive data, including password hashing
+
+•	SSL integration for secure connections
+
+## Key Components
+
 As a database to store user profiles, I’m using Django database. 
 
 The models.py file defines the data models used by the Django ORM (Object-Relational Mapping). These models represent the structure of the database tables and the relationships between them. 
