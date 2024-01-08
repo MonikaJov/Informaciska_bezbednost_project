@@ -1,6 +1,7 @@
-# Informaciska_bezbednost_proekt
+# Information_security_project
 
-This project is a Django web application that includes features for user registration, login, and a basic home page. As a database to store user profiles, I’m using Django database. 
+This project is a Django web application that includes features for user registration, login, and pages for viewing, creating, editing blogs. Main goal for this project is creating a web app that incorporates procedures and methods for security that can effectively protect sensitive information and provide a trustworthy environment for users. 
+As a database to store user profiles, I’m using Django database. 
 
 The models.py file defines the data models used by the Django ORM (Object-Relational Mapping). These models represent the structure of the database tables and the relationships between them. 
 
@@ -31,7 +32,7 @@ Python 3.8 or higher installed Django 3.2 or higher installed To set up the proj
 
 Technologies used: Python, HTML, CSS, Bootstrap, JavaScript, Django.
 
-# Homework 2 documentation:
+# Authentication:
 
 ## User registration:
 
@@ -78,7 +79,7 @@ The two_factor_authentication method in views.py is also called when the user ty
 ### home method:
 The home method is called after the user has logged in. It checks if the user is logged in and if so, it retrieves all the blog posts from the BlogPost model and the UserProfile associated with the current user. Then ‘blog_list.html’ is rendered with the provided context and the user goes to http://127.0.0.1:8000/posts where a web page is presented that lists all blogs that users have posted. The web page also has a navigation bar that has a search field and a filter form that the user can use to search for a post with a specific title or content and filter posts by creation dates. 
  
-# Homework 3 documentation:
+# Authorization:
 
 ## Defining and managing roles:
 
@@ -103,7 +104,7 @@ To be able to do that I used a Django template code that uses conditional render
 
 •	User can view thir profile at http://127.0.0.1:8000/profile/.
 
-# From Homework 4 documentation
+# SSL
 
 ## Setting up SSL in settings.py
 For development purposes, Django comes with its own development server, which is a lightweight server suitable for testing. I can use that built-in development server by running the python manage.py runserver command. 
