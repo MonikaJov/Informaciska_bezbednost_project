@@ -1,6 +1,6 @@
 # Information_security_project
 
-This project is a Django web application that includes features for user registration, login, and pages for viewing, creating, editing blogs. Main goal for this project is creating a web app that incorporates procedures and methods for security that can effectively protect sensitive information and provide a trustworthy environment for users. 
+This project is a Django web application that includes features for user registration, login, and pages for viewing, creating, editing blogs. Main goal for this project is creating a web app that incorporates procedures and methods for security that can protect sensitive information and provide a trustworthy environment for users. 
 
 ## Key Features:
 
