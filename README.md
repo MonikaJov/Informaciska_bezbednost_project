@@ -28,6 +28,8 @@ The admin.py file is used to configure and customize the behavior of the Django 
 
 The urls.py file defines the URL patterns for the Django project. It maps URLs to corresponding views, allowing the application to respond to different requests. 
 
+The templates are files that define how a web page is displayed.
+
 ## Installation and starting the project
 Installation Before running the project, ensure you have the following prerequisites:
 Python 3.8 or higher installed Django 3.2 or higher installed To set up the project, follow these steps:
