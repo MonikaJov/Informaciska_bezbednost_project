@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'pet_shop',
     'django_otp',
     'django_otp.plugins.otp_totp',
-    'sslserver',
+    # 'sslserver',
 ]
 
 MIDDLEWARE = [
